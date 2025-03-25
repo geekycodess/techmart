@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #1a1a1a;
+  --secondary-color: #4a4a4a;
+  --accent-color: #e6e6e6;
+  --background-color: #ffffff;
+  --text-color: #1a1a1a;
+  --light-gray: #f5f5f5;
+  --border-color: #e6e6e6;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Allbirds-style typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Clean, minimal buttons */
+.btn {
+  @apply px-6 py-3 text-sm font-medium transition-all duration-200;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Minimal input fields */
+input, select, textarea {
+  @apply px-4 py-2 border border-gray-200 focus:outline-none focus:border-gray-900;
+  background-color: white;
+  border-radius: 0;
+}
+
+/* Product card styling */
+.product-card {
+  @apply bg-white border border-gray-100 transition-all duration-300;
+  padding: 0;
+  margin: 0;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.product-image {
+  @apply relative overflow-hidden;
+  aspect-ratio: 1;
+}
+
+.product-image img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  @apply p-6;
+}
+
+.product-name {
+  @apply text-lg font-medium mb-2;
+  color: var(--primary-color);
+}
+
+.product-price {
+  @apply text-sm font-medium;
+  color: var(--primary-color);
+}
+
+.product-description {
+  @apply text-sm text-gray-600 mt-2;
+  line-height: 1.5;
+}
+
+/* Navigation styling */
+.nav-link {
+  @apply text-sm font-medium transition-colors duration-200;
+  color: var(--secondary-color);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Category tags */
+.category-tag {
+  @apply text-xs font-medium px-2 py-1;
+  background-color: var(--light-gray);
+  color: var(--secondary-color);
+}
+
+/* Stock status */
+.stock-status {
+  @apply text-xs font-medium mt-2;
+}
+
+.stock-high {
+  color: #1a1a1a;
+}
+
+.stock-low {
+  color: #e74c3c;
+}
+
+/* Rating stars */
+.rating {
+  @apply flex items-center gap-1 mt-2;
+  color: #1a1a1a;
+}
+
+/* Sale badge */
+.sale-badge {
+  @apply absolute top-4 right-4 text-xs font-medium px-2 py-1;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Grid layout */
+.products-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
+}
+
+/* Filter sidebar */
+.filter-sidebar {
+  @apply bg-white border-r border-gray-100 p-6;
+}
+
+.filter-title {
+  @apply text-sm font-medium mb-4;
+  color: var(--primary-color);
+}
+
+.filter-option {
+  @apply text-sm text-gray-600 mb-2 cursor-pointer transition-colors duration-200;
+}
+
+.filter-option:hover {
+  color: var(--primary-color);
+}
+
+/* Pagination */
+.pagination {
+  @apply flex justify-center gap-2 mt-12;
+}
+
+.pagination-button {
+  @apply px-4 py-2 text-sm font-medium transition-colors duration-200;
+  color: var(--secondary-color);
+}
+
+.pagination-button:hover {
+  color: var(--primary-color);
+}
+
+.pagination-button.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Search bar */
+.search-bar {
+  @apply relative w-full max-w-md;
+}
+
+.search-input {
+  @apply w-full px-4 py-3 border border-gray-200 focus:outline-none focus:border-gray-900;
+  background-color: white;
+  border-radius: 0;
+}
+
+.search-icon {
+  @apply absolute right-4 top-1/2 transform -translate-y-1/2;
+  color: var(--secondary-color);
+}
+
+/* Loading animation */
+.loading {
+  @apply animate-pulse bg-gray-100;
+}
+
+/* Toast notifications */
+.toast {
+  @apply fixed bottom-4 right-4 px-6 py-3 text-sm font-medium;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .products-grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+  
+  .filter-sidebar {
+    @apply fixed inset-y-0 left-0 w-64 transform -translate-x-full transition-transform duration-300;
+  }
+  
+  .filter-sidebar.open {
+    @apply translate-x-0;
+  }
+} 
